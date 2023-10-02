@@ -1,0 +1,20 @@
+
+<div class="chatbot-container">
+
+    <!-- chat messages layout -->
+    <div class="flex-column rgp-1 chat-messages"  #scrollContainer>
+        <div class="flex-column rgp-1" *ngFor="let item of chatResponses">
+            <div class="chat-message question">{{item.question}}</div>
+            <span class="loading" *ngIf="item.isLoading"></span>
+            <div class="chat-message answer" *ngIf="!item.isLoading" [innerHTML]="item.answer"></div>
+        </div>
+    </div>
+
+    <!-- user input container -->
+    <div class="user-input">
+        <input  [(ngModel)]="prompt" type="text" id="userMessage" placeholder="Type your question" (keyup.enter)="fetchResonseForPrompt()">
+        <span class="action-icon" (click)="fetchResonseForPrompt()" [ngStyle]="{'cursor': isLoading ? 'not-allowed': 'pointer'}">
+            <img src="../../assets//chat-send.svg">
+        </span>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Delta - AI powered chatbot",
+    "version": "1.0",
+    "description": "This plugin possesses the ability to grasp the intricacies of your website's content, serving as a knowledgeable resource at your fingertips.",
+    "permissions": [ "activeTab", "tabs" ],
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": {
+        "48": "assets/icon.png"    
+      }
+    },
+    "icons": {
+      "48": "assets/icon.png"    
+    }
+  }
+  

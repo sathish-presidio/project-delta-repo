@@ -1,0 +1,155 @@
+$outgoing-message-color: #9BEBF3;
+$incoming-message-color: #f1eaede6;
+$loading-color: rgba(109,9,121,1);
+$input-gradient-color: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(109,9,121,1) 0%, rgba(122,27,119,1) 2%, rgba(122,9,126,1) 13%, rgba(0,217,255,1) 100%);
+
+.chatbot-container {
+    position: relative;
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-messages {
+    max-height: 350px;
+    overflow-y: scroll;
+}
+
+.chat-message{
+    position: relative;
+    width: 90%;
+    margin-bottom: 10px;
+    border-radius: 10px 15px 15px 10px;
+    padding: 10px;
+}
+
+.question{
+    background-color: $outgoing-message-color;
+
+    &:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 15px solid $outgoing-message-color;
+        border-right: 15px solid transparent;
+        border-top: 15px solid $outgoing-message-color;
+        border-bottom: 15px solid transparent;
+        right: -16px;
+        top: 0px;
+        z-index: -1;
+    }
+}
+
+.answer {
+    background-color: $incoming-message-color;
+    margin-left: 4%;
+
+    &:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 15px solid transparent;
+        border-right: 15px solid $incoming-message-color;
+        border-top: 15px solid $incoming-message-color;
+        border-bottom: 15px solid transparent;
+        left: -16px;
+        top: 0px;
+        z-index: -1;
+    }
+
+}
+
+.user-input {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: $input-gradient-color;    
+    padding: 10px 15px;
+    display: flex;
+    margin-top: 10px;
+
+    .action-icon {
+        cursor: pointer;
+        width: 30px;
+        display: flex;
+        rotate: 45deg;
+    }
+
+    ::placeholder {
+        color: #ccc;
+    }
+}
+
+.user-input input[type="text"] {
+    background: transparent;
+    border: none;
+    color: white;
+    flex-grow: 1;
+    padding: 10px;
+    outline: none;
+}
+
+
+.loading:after {
+    content: '.';
+    font-size: 40px;
+    margin-left: 1rem;
+    animation: dots 1s steps(5, end) infinite;}
+  
+  @keyframes dots {
+    0%, 20% {
+      color: rgba(0,0,0,0);
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    40% {
+      color: $loading-color;
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    60% {
+      text-shadow:
+        .25em 0 0 $loading-color,
+        .5em 0 0 rgba(0,0,0,0);}
+    80%, 100% {
+      text-shadow:
+        .25em 0 0 $loading-color,
+        .5em 0 0 $loading-color;}}
+
+
+::ng-deep pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 5px;
+}
+    
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: grey;
+}
